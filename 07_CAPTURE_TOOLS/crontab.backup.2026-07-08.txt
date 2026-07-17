@@ -1,0 +1,1 @@
+0 1 * * * "/home/noneya/Projects/VERITAS v.3/07_CAPTURE_TOOLS/run_nightly_scrape.sh"

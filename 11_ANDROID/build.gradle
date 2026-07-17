@@ -1,0 +1,16 @@
+// Top-level build file. Plugin versions match the working app-base / phoenix mold,
+// so this project builds with the same toolchain.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://chaquo.com/maven" }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.1.1"
+        classpath "com.chaquo.python:gradle:16.0.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.21"
+    }
+}
+
+tasks.register('clean', Delete) { delete rootProject.buildDir }

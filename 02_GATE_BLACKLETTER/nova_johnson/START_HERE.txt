@@ -1,0 +1,105 @@
+========================================================================
+  START HERE  --  Meet NOVA JOHNSON
+========================================================================
+
+WHAT THIS IS
+------------
+NOVA JOHNSON is your founding-era definition agent. You give him a word,
+and he gives you the plain meaning of that word from your own sources.
+
+The key thing: he cannot make up a definition. He only reads what is
+actually in your Definitions Library. If a word is not there, he says
+"No verified definition found in loaded sources" and stops. That is on
+purpose -- it is the whole reason he exists.
+
+Nothing in here touches VERITAS. It is a safe, self-contained test, just
+like the gate packet. Open it, try it, close it -- nothing else changes.
+
+
+WHAT IS INSIDE
+--------------
+  1. START_HERE.txt ............... this guide.
+  2. nova_johnson.py .............. the agent you will start. The one you touch.
+  3. NOVA_JOHNSON_ROLE_CARD.txt ... his written rules and character (read anytime).
+  4. veritas_libraries.py ......... the gate he reads through.
+  5. VERITAS_definitions_library.json .. your plain definitions.
+  6. etymology_dictionary.py ...... your word origins (support only).
+  7. VERITAS_historical_context_library.json .. your historical notes.
+
+All seven must stay together in the same folder. That is why they are
+packed together here.
+
+
+THE STEPS
+---------
+
+STEP 1 -- Save the packet.
+  Click the packet file NOVA_JOHNSON_AGENT.zip so it saves onto your
+  computer. It lands in your Downloads area (where saved things go).
+
+STEP 2 -- Find it.
+  Open your file manager (the program showing your folders -- the small
+  filing-cabinet icon). Click "Downloads" on the left. You will see
+  NOVA_JOHNSON_AGENT.zip.
+
+STEP 3 -- Unpack it.
+  Right-click NOVA_JOHNSON_AGENT.zip one time. Click "Extract Here."
+  WHY: the packet arrives squeezed into one file so nothing gets
+  separated. "Extract" un-squeezes it into a normal folder.
+  You will see a new folder named NOVA_JOHNSON_AGENT.
+
+STEP 4 -- Open the new folder.
+  Double-click the new folder NOVA_JOHNSON_AGENT to open it. You should
+  see the seven items listed above.
+
+STEP 5 -- Open a typing window inside that folder.
+  Right-click an empty space inside this folder (on the blank area, not
+  on a file). Click "Open Terminal Here."
+  WHY: a "terminal" is just a small window where you type one instruction
+  to the computer. Opening it inside this folder means the computer
+  already knows where the agent's files are.
+
+STEP 6 -- Start the agent.
+  Type this line exactly, then press Enter:
+
+        python3 nova_johnson.py
+
+  WHY, in plain terms:
+    - "python3" is a program already on your computer that knows how to
+      read this kind of file.
+    - "nova_johnson.py" is the agent file you want it to read.
+    - Typing them with one space between, then pressing Enter, tells the
+      computer: "use Python to read the nova_johnson file now." That
+      starts NOVA JOHNSON.
+
+STEP 7 -- Talk to him.
+  He first shows three examples -- including "equity," which he REFUSES,
+  because it is not in your library. Then he says "Now you try." Type any
+  word and press Enter to see his answer. Type the word  done  to finish.
+
+
+WHAT SUCCESS LOOKS LIKE
+-----------------------
+  - Words that ARE in your library (liberty, shall, commerce) come back
+    with a real founding-era definition.
+  - Words that are NOT (like equity) come back with:
+        "No verified definition found in loaded sources."
+  If you see him answering the real ones and refusing the missing ones,
+  he works. That refusal is the feature, not a bug.
+
+
+IF SOMETHING LOOKS WRONG
+------------------------
+  - If Step 6 says "command not found," the Python program is not on this
+    computer yet. Stop and tell me; I will walk you through adding it.
+  - If it says it cannot find a file, the seven items got separated. Put
+    them back in one folder and try Step 5 again from inside it.
+  - Anything else: copy what the window says, tell me, and I will fix it.
+
+
+A NOTE ON WHICH COMPUTER
+------------------------
+These steps are written for your Linux computer. On the Windows machine
+the only change is Step 5 and the exact word in Step 6 ("python" instead
+of "python3"). Tell me if you are on Windows and I will hand you that
+version.

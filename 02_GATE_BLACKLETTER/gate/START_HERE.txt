@@ -1,0 +1,175 @@
+========================================================================
+  START HERE  --  Watch the Blackletter Gate Work
+========================================================================
+
+WHAT THIS PACKET IS
+-------------------
+This is a small, self-contained test. Its only job is to let you SEE
+the Blackletter gate work with your own eyes, before we ever connect it
+to VERITAS.
+
+Nothing in here touches VERITAS. Nothing here changes any of your other
+work. You can open it, watch it, and close it, and everything else you
+own is exactly as it was. This is a safe sandbox.
+
+The gate does one thing: it takes a word and decides whether that word
+is properly sourced in your founding-era references.
+  - If the word IS sourced, the gate lets it through.
+  - If the word is NOT sourced, the gate STOPS -- on purpose -- and
+    says "Void for Vagueness," which just means: "this word does not
+    have a clear enough source on file, so I will not use it and I will
+    not guess."
+
+That refusal is the whole point. It is the thing that forces honest
+answers instead of confident guesses.
+
+
+WHAT IS INSIDE THIS PACKET
+--------------------------
+You do not need to open or understand most of these. They just need to
+sit together in the same folder. Here is what each one is and why it is
+here:
+
+  1. START_HERE.txt
+     This guide. The thing you are reading now.
+
+  2. TRY_THE_GATE.py
+     The little test program you will start. This is the one you touch.
+     It shows the gate deciding words.
+
+  3. veritas_libraries.py
+     The gate itself -- the part that does the deciding. TRY_THE_GATE
+     asks this file to do the work.
+
+  4. VERITAS_definitions_library.json
+     Your plain founding-era definitions (Johnson 1755 / Bailey 1721).
+     This is the collection the gate treats as the deciding one.
+
+  5. etymology_dictionary.py
+     Your word-origins collection. This can support a decision but never
+     makes one by itself.
+
+  6. VERITAS_historical_context_library.json
+     Your historical-use and intent notes. Also support only, never
+     the decider.
+
+All six must stay in the same folder for the test to work. That is why
+they are packed together here -- so you never have to hunt for them.
+
+
+WHAT YOU ARE ABOUT TO DO, AND WHY
+---------------------------------
+You are going to unpack this folder onto your computer and start the
+little test program. When it starts, it will show you the gate letting
+some sourced words through and stopping some unsourced words. Then it
+lets you type your own words to try. That is all. When you have seen it
+work, you are done.
+
+
+THE STEPS
+---------
+Do these in order. Each step says what to do, and why.
+
+STEP 1 -- Save the packet to your computer.
+  WHAT: Click the packet file named BLACKLETTER_GATE_PACKET.zip that I
+        gave you, so it saves onto your computer.
+  WHY:  This brings the whole test onto your machine in one piece.
+  WHERE IT LANDS: It goes into your Downloads area, the place your
+        computer keeps things you save from the screen.
+
+STEP 2 -- Open your file viewer and find it.
+  WHAT: Open your file manager. That is the program that shows your
+        folders -- its icon looks like a small filing cabinet or folder.
+        Then click the word "Downloads" on the left-hand side.
+  WHY:  This is where the packet landed, so this is where you go to get
+        it.
+  YOU SHOULD SEE: a file named BLACKLETTER_GATE_PACKET.zip
+
+STEP 3 -- Unpack the packet.
+  WHAT: Right-click the file BLACKLETTER_GATE_PACKET.zip one time. A
+        small menu appears. Click "Extract Here."
+  WHY:  The packet arrives squeezed into one tight file so nothing gets
+        lost or separated. "Extract" simply un-squeezes it back into a
+        normal folder you can open. A ".zip" file is just that kind of
+        squeezed package.
+  YOU SHOULD SEE: a new folder appear named BLACKLETTER_GATE_PACKET
+        (no ".zip" on the end this time).
+
+STEP 4 -- Open the new folder.
+  WHAT: Double-click the new folder named BLACKLETTER_GATE_PACKET to
+        open it.
+  WHY:  Everything the test needs is inside this folder, and the next
+        step has to happen from inside it.
+  YOU SHOULD SEE: the six items listed above, sitting together.
+
+STEP 5 -- Open a typing window inside that folder.
+  WHAT: Right-click an empty space inside this folder (not on any file,
+        just on the blank area). A small menu appears. Click
+        "Open Terminal Here."
+  WHY:  A "terminal" is just a small window where you can type an
+        instruction straight to the computer, one line at a time. You
+        need it opened INSIDE this folder so the computer already knows
+        where the test files are.
+  YOU SHOULD SEE: a small window open, usually with a dark background
+        and a blinking cursor, waiting for you to type.
+
+STEP 6 -- Tell the computer to start the test.
+  WHAT: Type the following line exactly, then press the Enter key:
+
+            python3 TRY_THE_GATE.py
+
+  WHY:  Reading that line out loud in plain terms:
+        - "python3" is the name of a program already on your computer
+          that knows how to read this kind of test file.
+        - "TRY_THE_GATE.py" is the name of the test file you want it to
+          read.
+        - Typing them together with one space between, then pressing
+          Enter, tells the computer: "Use Python to read the
+          TRY_THE_GATE file now." That is what starts the test.
+
+STEP 7 -- Watch it, then try your own words.
+  WHAT: The window fills with the gate deciding words. First it shows a
+        few examples. Then it says "Now you try it." When it does, type
+        any word and press Enter to see the gate decide it. When you are
+        finished, type the word  done  and press Enter.
+  WHY:  This is the whole purpose -- to see, with your own eyes, that
+        the gate lets sourced words through and stops unsourced ones.
+
+
+WHAT SUCCESS LOOKS LIKE
+-----------------------
+You will see lines like these:
+
+    Word:  senate
+       ->  LET THROUGH
+       Reason: a founding-era definition is on file, so this word is sourced.
+
+    Word:  indictment
+       ->  STOPPED   (the gate says: Void for Vagueness)
+       Reason: there is NO founding-era definition on file for this word.
+
+If you see sourced words getting LET THROUGH and unsourced words getting
+STOPPED, the gate works. That is the whole test. You are done.
+
+
+IF SOMETHING LOOKS WRONG
+------------------------
+  - If, after Step 6, the window says something like "command not found,"
+    that means the Python program is not on this computer yet. Stop there
+    and tell me -- I will walk you through adding it, in plain steps.
+
+  - If it says it cannot find a file, it usually means the six items got
+    separated. Make sure all six are sitting in the same folder, then try
+    Step 5 again from inside that folder.
+
+  - Anything else that looks off: copy the words you see in the window,
+    tell me, and I will sort it out.
+
+
+A NOTE ON WHICH COMPUTER
+------------------------
+These steps are written for your Linux computer. If you are doing this on
+the Windows machine instead, the only thing that changes is Step 5 and the
+exact word in Step 6 (Windows uses "python" instead of "python3"). Tell me
+you are on Windows and I will hand you that version -- everything else is
+the same.

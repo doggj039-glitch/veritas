@@ -1,0 +1,139 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>VERITAS — Owner's Manual & Guide</title>
+<style>
+  :root{--bg:#0c0e13;--surface:#12151d;--surface2:#191d27;--line:#282e3c;--line2:#3a4254;--ink:#e9e7dd;--ink-dim:#c3c7d2;--ink-mute:#79808f;--gold:#c9a24b;--gold-b:#e6c877;--gold-soft:rgba(201,162,75,.13);--gold-line:rgba(201,162,75,.35);--green:#6cb38a;--blue:#6f9fe0;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink-dim);font-family:var(--sans);font-size:15.5px;line-height:1.65}
+  a{color:var(--gold-b);text-decoration:none}a:hover{text-decoration:underline}
+  ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:#2c3342;border-radius:20px}
+  .mast{border-bottom:1px solid var(--line);background:#000;padding:30px 28px;text-align:center}
+  .wm{font-family:var(--serif);font-size:30px;letter-spacing:.4em;text-indent:.4em;color:var(--gold);font-weight:600;margin:0}
+  .mast .t{font-size:10.5px;letter-spacing:.3em;color:var(--ink-mute);text-transform:uppercase;margin-top:6px}
+  .wrap{display:grid;grid-template-columns:210px minmax(0,1fr);max-width:1080px;margin:0 auto}
+  nav.toc{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:26px 16px 26px 26px;border-right:1px solid var(--line)}
+  nav.toc .h{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 12px}
+  nav.toc a{display:block;color:var(--ink-mute);font-size:13px;padding:6px 10px;border-radius:7px;border-left:2px solid transparent}
+  nav.toc a:hover{color:var(--ink);background:var(--surface2);text-decoration:none}
+  nav.toc a.on{color:var(--gold-b);border-left-color:var(--gold);background:var(--gold-soft)}
+  main{padding:34px 42px 100px;min-width:0}
+  @media(max-width:760px){.wrap{grid-template-columns:1fr}nav.toc{display:none}main{padding:24px 20px 70px}}
+  section{scroll-margin-top:16px}
+  h2{font-family:var(--serif);font-size:25px;color:var(--ink);margin:40px 0 6px;padding-top:20px;border-top:1px solid var(--line)}
+  section:first-of-type h2{border-top:none;padding-top:0;margin-top:0}
+  h2 .n{font-family:var(--mono);font-size:14px;color:var(--gold);margin-right:12px}
+  h3{font-family:var(--serif);font-size:18px;color:var(--ink);margin:24px 0 6px}
+  p,li{max-width:70ch}strong{color:var(--ink)}em{color:var(--ink);font-style:italic}
+  ul,ol{padding-left:20px}li{margin:5px 0}
+  code{font-family:var(--mono);font-size:.86em;background:var(--surface2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--gold-b)}
+  .step{display:flex;gap:14px;margin:14px 0;max-width:72ch}
+  .step .num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--gold-soft);border:1px solid var(--gold-line);color:var(--gold-b);font-family:var(--mono);font-size:13px;display:grid;place-items:center;font-weight:700}
+  .step .b{padding-top:2px}
+  .callout{background:var(--surface);border:1px solid var(--gold-line);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:14px 18px;margin:20px 0;max-width:72ch}
+  .callout .k{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+  .callout p{margin:0;font-family:var(--serif);color:var(--ink-dim)}
+  .tbl{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:460px;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--surface2);color:var(--gold);font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+  tbody tr:last-child td{border-bottom:none}td:first-child{color:var(--ink);font-weight:500;white-space:nowrap}
+  .foot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;color:var(--ink-mute);max-width:72ch}
+</style></head><body>
+<header class="mast"><h1 class="wm">VERITAS</h1><div class="t">Owner's Manual &amp; Guide</div></header>
+<div class="wrap">
+  <nav class="toc" aria-label="Contents">
+    <div class="h">Contents</div>
+    <a href="#start">Quick start</a>
+    <a href="#ask">The Ask box</a>
+    <a href="#card">Reading a result</a>
+    <a href="#books">Reading books</a>
+    <a href="#cases">Browsing cases</a>
+    <a href="#windows">The windows (☰)</a>
+    <a href="#settings">Settings &amp; API key</a>
+    <a href="#tiers">Offline vs online</a>
+    <a href="#doctrine">How it stays honest</a>
+  </nav>
+  <main>
+    <p style="font-family:var(--serif);font-size:17px;color:var(--ink);max-width:66ch">VERITAS resolves the words of the Constitution to their <em>founding-era meaning</em> (Johnson's 1773 Dictionary), shows how each word <em>drifted</em> afterward, and lets you read the founding record itself. Everything runs on your machine.</p>
+
+    <section id="start"><h2><span class="n">01</span>Quick start</h2>
+      <div class="step"><span class="num">1</span><div class="b"><strong>Type a word in the Ask box</strong> (bottom-center) — try <code>commerce</code> — and press <strong>ASK</strong>.</div></div>
+      <div class="step"><span class="num">2</span><div class="b">You get the <strong>verbatim 1773 definition</strong>, its etymology, how the founders used it in the record, and the Supreme Court cases that later stretched it.</div></div>
+      <div class="step"><span class="num">3</span><div class="b">Try a word that isn't founding-era — <code>interstate</code> — and it returns <strong>Void for Vagueness</strong> instead of guessing.</div></div>
+      <div class="step"><span class="num">4</span><div class="b">Change the dropdown next to the Ask box from <em>Define · gate</em> to a voice (say <strong>Blackstone</strong>) and ask a question — you get his actual words, cited.</div></div>
+      <div class="step"><span class="num">5</span><div class="b">Open the <strong>☰ menu</strong> (top-left) to switch windows, or come back to this guide anytime.</div></div>
+    </section>
+
+    <section id="ask"><h2><span class="n">02</span>The Ask box &amp; its three modes</h2>
+      <p>The dropdown beside the Ask box sets what your question does:</p>
+      <div class="tbl"><table><thead><tr><th>Mode</th><th>What it does</th></tr></thead><tbody>
+        <tr><td>Define · gate</td><td>Resolves a word to its verbatim Johnson 1773 meaning, or flags it Void for Vagueness.</td></tr>
+        <tr><td>Ask <em>a voice</em></td><td>Puts your question to a grounded agent — Publius, Blackstone, Montesquieu, Story, the Convention, Rawle, Lieber, Sedgwick, Anti-Federalist, Ratification. Verbatim, cited answers only.</td></tr>
+        <tr><td>Discuss <em>a topic</em></td><td>Runs a citizen/Socratic walkthrough of an analysis dataset — premise, grounded questions, conclusion.</td></tr>
+        <tr><td>Ask Claude · grounded</td><td>Needs an API key (Settings) + internet. Retrieves the grounded sources <em>locally</em> first, then a Claude model composes a cited answer from only those. Shows the terms it grounded on and the tokens used.</td></tr>
+      </tbody></table></div>
+      <p>Everything you ask <strong>lands in the workspace</strong> and stays for the session. The <em>Clear session</em> button empties it.</p>
+    </section>
+
+    <section id="card"><h2><span class="n">03</span>Reading a result card</h2>
+      <p>When you define a word, the card is layered top-to-bottom:</p>
+      <ul>
+        <li><strong>Verdict</strong> — <span style="color:var(--green)">ADMITTED</span> (grounded) or <span style="color:var(--blue)">VOID FOR VAGUENESS</span> (no founding authority).</li>
+        <li><strong>Johnson 1773 · definition</strong> — the sense, verbatim. (Johnson's literary example-quotations are omitted for clarity.)</li>
+        <li><strong>Etymology</strong> and <strong>Founding-era usage</strong> — real quotations from the founding documents, cited.</li>
+        <li><strong>Construed by the Supreme Court</strong> — the cases that moved the word, with the direction of drift, and the <strong>dissents</strong> that argued against it.</li>
+      </ul>
+      <div class="callout"><div class="k">Read a "Void" correctly</div><p>Void for Vagueness means "<em>not a Johnson 1773 headword</em>" — a tripwire for undefined operative vocabulary. It is <strong>not</strong> a ruling that something is unconstitutional.</p></div>
+    </section>
+
+    <section id="books"><h2><span class="n">04</span>Reading the books</h2>
+      <p>Open the <strong>Library</strong> tree on the left (Primary window). Under <em>Founding-Era Sources</em> click a book — Blackstone, Montesquieu, the Federalist, Elliot's Debates, and more. Its card has a <strong>"Read the full text →"</strong> button that opens the whole book in a reader you can scroll, right inside the app. Close it with the ✕ or the Esc key.</p>
+      <p>Ten founding-era works are fully readable this way — every word verbatim, in document order.</p>
+    </section>
+
+    <section id="cases"><h2><span class="n">05</span>Browsing the Supreme Court cases</h2>
+      <p>Open <strong>Case Detail</strong> from the ☰ menu. The left column starts with the landmark cases (each with a full founding-grounding analysis and its dissent). <strong>Type in the search box</strong> and you search the entire corpus — <strong>7,696 cases (1956–2018)</strong>. Click any result to see its verified record and links to the full opinion on Oyez and Justia.</p>
+    </section>
+
+    <section id="windows"><h2><span class="n">06</span>The windows (the ☰ menu)</h2>
+      <p>The three-line icon, top-left, opens the window switcher. VERITAS is a hub with spokes:</p>
+      <div class="tbl"><table><thead><tr><th>Window</th><th>For</th></tr></thead><tbody>
+        <tr><td>Primary</td><td>The Library + the Ask box (your main workspace)</td></tr>
+        <tr><td>Drift Tracker</td><td>A word's meaning across dictionaries, 1773 → 1913</td></tr>
+        <tr><td>Timeline</td><td>The founding-to-modern chronology, filterable by layer</td></tr>
+        <tr><td>Case Detail</td><td>A single case, with counterevidence shown</td></tr>
+        <tr><td>Graph View</td><td>How a finding connects to text, meaning, and precedent</td></tr>
+        <tr><td>Debates</td><td>The founding voices in dialogue</td></tr>
+      </tbody></table></div>
+      <p>Use the <strong>◀ Back / ▶ Forward</strong> arrows (top-left) to retrace your steps between windows. The <strong>Research Panel</strong> on the right collapses with its ‹ button and reopens from the tab on the right edge.</p>
+    </section>
+
+    <section id="settings"><h2><span class="n">07</span>Settings &amp; the API key</h2>
+      <p>The <strong>⚙ gear</strong> (top-right) shows the engine status and lets you add an <strong>Anthropic API key</strong> to enable the grounded "Ask Claude" mode. The key is stored only on your machine (<code>~/.config/veritas</code>, permissions 600) and is never placed in the page. VERITAS works fully without it.</p>
+    </section>
+
+    <section id="tiers"><h2><span class="n">08</span>Offline now, online later</h2>
+      <p>Today VERITAS is <strong>fully offline</strong> — the gate, the ten agents, the dictionaries, the corpora, and the case index all run locally with no internet. The optional <strong>online tier</strong> (with an API key) now lets a Claude model <em>compose</em> over these grounded sources — retrieving the verbatim passages and citing them, with the gate fencing every term. It never overrides the founding meaning; it only arranges what the sources say.</p>
+    </section>
+
+    <section id="doctrine"><h2><span class="n">09</span>How it stays honest</h2>
+      <ul>
+        <li><strong>Verbatim only</strong> — never invents or paraphrases a founding-era meaning.</li>
+        <li><strong>1773 is controlling</strong> — etymology, usage, and drift corroborate; later dictionaries never override.</li>
+        <li><strong>When ungrounded, it says so</strong> — Void for Vagueness beats a confident guess.</li>
+        <li><strong>Analysis is labeled as analysis</strong> — the Discuss walkthroughs are arguments to check against the gate, never verdicts.</li>
+      </ul>
+      <p class="foot">If anything here stops matching what the app does, the app is right and the manual is stale — tell whoever maintains it to fix the manual first.</p>
+    </section>
+  </main>
+</div>
+<script>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('nav.toc a')), map={};
+    links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.remove('on');});if(map[e.target.id])map[e.target.id].classList.add('on');}});},{rootMargin:'-8% 0px -80% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(s){obs.observe(s);});
+  })();
+</script>
+</body></html>

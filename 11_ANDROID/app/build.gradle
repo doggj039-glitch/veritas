@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'law.veritas.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "law.veritas.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        // Phones are arm64. Add "armeabi-v7a" only if you must support old 32-bit devices
+        // (it roughly doubles the Python runtime size in the APK).
+        ndk { abiFilters "arm64-v8a" }
+
+        python {
+            // The VERITAS engine uses ONLY the Python standard library (json, sqlite3,
+            // re, http.server, urllib) — no pip dependencies to install. sqlite3 on
+            // Android/Chaquopy includes FTS5, which the (optional) concordance needs.
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+
+    // veritas-data.zip is already compressed content (a SQLite db) — don't re-compress it,
+    // so it can be streamed straight out of the APK on first run.
+    androidResources { noCompress 'zip' }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
+}

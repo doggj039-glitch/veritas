@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c0e13">
+<title>VERITAS</title>
+<style>
+  :root{--bg:#0c0e13;--s1:#12151d;--s2:#191d27;--s3:#212734;--line:#282e3c;--ink:#e9e7dd;--dim:#b8bdcb;--mute:#79808f;
+    --gold:#c9a24b;--goldb:#e6c877;--golds:rgba(201,162,75,.13);--goldl:rgba(201,162,75,.35);--green:#6cb38a;--blue:#6f9fe0;
+    --serif:"Iowan Old Style",Palatino,Georgia,serif;--sans:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;--mono:ui-monospace,Menlo,monospace}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);overscroll-behavior:none}
+  body{display:flex;flex-direction:column}
+  /* header */
+  .top{flex:none;padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;background:var(--s1);border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--serif);font-size:15px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin:0 0 8px}
+  .search{display:flex;gap:8px}
+  .search input{flex:1;background:var(--s3);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:17px;padding:11px 14px}
+  .search input:focus{outline:none;border-color:var(--goldl)}
+  .search button{background:var(--golds);border:1px solid var(--goldl);color:var(--goldb);border-radius:11px;padding:0 15px;font-size:16px;font-weight:700}
+  /* main */
+  .main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 90px}
+  .view{display:none}.view.on{display:block}
+  .hint{color:var(--mute);font-size:14px;line-height:1.6;padding:30px 6px;text-align:center}
+  /* define */
+  .word{font-family:var(--serif);font-size:30px;color:var(--goldb);margin:2px 0 3px}
+  .verdict{display:inline-block;font:700 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--golds);color:var(--gold);margin-bottom:14px}
+  .verdict.void{background:rgba(200,90,90,.16);color:#d98}
+  .sec{border:1px solid var(--line);border-radius:13px;background:var(--s1);padding:14px 15px;margin-bottom:12px}
+  .sec .lbl{font:700 10.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+  .sec .txt{font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);white-space:pre-wrap}
+  .ety{font-family:var(--mono);font-size:14px;color:var(--dim)}
+  .quote{border-left:2px solid var(--goldl);padding:3px 0 3px 12px;margin:9px 0;color:var(--dim);font-size:15px;line-height:1.5}
+  .quote .src{display:block;font:600 12px var(--mono);color:var(--gold);margin-top:3px}
+  .driftbtn{width:100%;background:var(--golds);border:1px solid var(--goldl);color:var(--goldb);border-radius:11px;padding:12px;font-size:15px;font-weight:600;margin-bottom:12px}
+  .snap{border:1px solid var(--line);border-left:2px solid var(--goldl);border-radius:0 10px 10px 0;background:var(--s2);padding:11px 13px;margin-bottom:9px}
+  .snap .h{font:700 12px var(--mono);color:var(--gold)}
+  .snap .b{font-size:15px;line-height:1.5;color:var(--dim);white-space:pre-wrap;margin-top:3px}
+  .rowbtns{display:flex;gap:9px;margin:4px 0 14px}
+  .rowbtns button{flex:1;background:var(--s2);border:1px solid var(--line);border-radius:11px;color:var(--dim);padding:11px;font-size:14px;font-weight:600}
+  .rowbtns button:active{background:var(--golds);color:var(--goldb)}
+  /* browse */
+  .jump{width:100%;background:var(--s3);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:16px;padding:11px 14px;margin-bottom:10px}
+  .bw{display:flex;flex-direction:column;gap:1px}
+  .bwi{padding:13px 6px;border-bottom:1px solid var(--line)}
+  .bwi .w{font-family:var(--serif);font-size:18px;color:var(--goldb)}
+  .bwi .d{font-size:14px;color:var(--dim);line-height:1.45;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  /* library */
+  .doc{display:flex;align-items:center;gap:12px;padding:15px 6px;border-bottom:1px solid var(--line)}
+  .doc svg{width:20px;height:20px;flex:none;stroke:var(--gold);stroke-width:1.6;fill:none}
+  .doc .t{flex:1;font-size:16px;color:var(--ink)}
+  .doc .c{font:12px var(--mono);color:var(--mute)}
+  /* notes */
+  .add{display:flex;gap:8px;margin-bottom:12px}
+  .add input{flex:1;background:var(--s3);border:1px solid var(--line);border-radius:11px;color:var(--ink);font-size:16px;padding:11px 13px}
+  .add button{background:var(--golds);border:1px solid var(--goldl);color:var(--goldb);border-radius:11px;padding:0 16px;font-size:20px}
+  .note{position:relative;border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:0 10px 10px 0;background:var(--s2);padding:12px 40px 12px 13px;margin-bottom:9px;font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--dim);white-space:pre-wrap}
+  .note .x{position:absolute;top:8px;right:10px;color:var(--mute);font-size:20px}
+  .note .rd{position:absolute;bottom:8px;right:10px;font-size:16px;opacity:.6}
+  /* reader */
+  .reader{position:fixed;inset:0;z-index:50;background:var(--bg);display:none;flex-direction:column}
+  .reader.on{display:flex}
+  .rbar{flex:none;display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top) + 8px) 12px 8px;background:var(--s1);border-bottom:1px solid var(--line)}
+  .rbar .bk{background:var(--s3);border:1px solid var(--line);border-radius:9px;color:var(--dim);padding:8px 13px;font-size:15px}
+  .rbar .tt{flex:1;font-family:var(--serif);font-size:14px;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .reader iframe{flex:1;border:none;width:100%;background:var(--bg)}
+  /* tabs */
+  .tabs{flex:none;display:flex;background:var(--s1);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+  .tab{flex:1;background:none;border:none;color:var(--mute);padding:9px 0 8px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600}
+  .tab svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.7;fill:none}
+  .tab.on{color:var(--goldb)}
+  .spin{color:var(--mute);text-align:center;padding:26px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand">Veritas</div>
+    <form class="search" id="searchForm">
+      <input id="q" type="search" enterkeyhint="search" autocapitalize="none" autocorrect="off" placeholder="Define a word…">
+      <button type="submit">§</button>
+    </form>
+  </div>
+
+  <div class="main" id="main">
+    <div class="view on" id="v-define"><div class="hint">Type a constitutional word above — <b>commerce</b>, <b>necessary</b>, <b>arms</b>, <b>speech</b> — to see its founding-era meaning and how it drifted.</div></div>
+    <div class="view" id="v-browse">
+      <input class="jump" id="jump" placeholder="jump to a word…" autocapitalize="none">
+      <div class="bw" id="bwlist"></div>
+    </div>
+    <div class="view" id="v-library"><div class="bw" id="doclist"></div></div>
+    <div class="view" id="v-notes">
+      <div class="add"><input id="noteInput" placeholder="jot a note…" enterkeyhint="done"><button id="noteAdd">＋</button></div>
+      <div id="notelist"></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" data-v="define"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M9 12h6M9 16h4"/></svg>Define</button>
+    <button class="tab" data-v="browse"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Dictionary</button>
+    <button class="tab" data-v="library"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v18H6a2 2 0 01-2-2z"/><path d="M9 3v18"/></svg>Library</button>
+    <button class="tab" data-v="notes"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h6M9 16h4"/></svg>Notes</button>
+  </div>
+
+  <div class="reader" id="reader">
+    <div class="rbar"><button class="bk" id="rback">‹ Back</button><span class="tt" id="rtitle">Reader</span></div>
+    <iframe id="rframe" title="Reader"></iframe>
+  </div>
+
+<script>
+(function(){
+  var LS=window.localStorage;
+  function el(id){return document.getElementById(id);}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function api(p){return fetch(p).then(function(r){return r.json();});}
+
+  /* view switching */
+  function show(v){
+    document.querySelectorAll('.view').forEach(function(x){x.classList.toggle('on',x.id==='v-'+v);});
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-v')===v);});
+    el('main').scrollTop=0;
+    if(v==='browse' && !el('bwlist').childElementCount) loadBrowse('',false);
+    if(v==='library' && !el('doclist').childElementCount) renderDocs();
+    if(v==='notes') renderNotes();
+  }
+  document.querySelectorAll('.tab').forEach(function(t){ t.addEventListener('click',function(){show(t.getAttribute('data-v'));}); });
+
+  /* read-aloud (desktop: Piper via /api/speak; Android: a native bridge overrides window.VSpeak) */
+  window.VSpeak=function(t){ if(!t)return; fetch('/api/speak?text='+encodeURIComponent(String(t).slice(0,4000))).catch(function(){}); };
+
+  /* ---------- DEFINE ---------- */
+  function driftHTML(d){
+    return '<div class="snap"><div class="h">'+d.year+' · '+esc(d.source)+(d.register?' ('+esc(d.register)+')':'')+'</div><div class="b">'+esc(d.text)+'</div></div>';
+  }
+  function renderEntry(d){
+    var v=el('v-define');
+    if(!d.found){ v.innerHTML='<div class="hint">“'+esc(d.word)+'” isn’t in the founding-era library. Try the root word (e.g. <b>commerce</b>, not commercial), or browse the dictionary.</div>'; return; }
+    var h='<div class="word">'+esc(d.word)+'</div><div class="verdict">Founding meaning · Johnson 1773</div>';
+    h+='<div class="sec"><div class="lbl">Johnson’s Dictionary · 1773</div><div class="txt">'+esc(d.johnson||'—')+'</div>'+(d.etymology?'<div class="ety" style="margin-top:8px">'+esc(d.etymology)+'</div>':'')+'</div>';
+    if(d.usage&&d.usage.length){
+      h+='<div class="sec"><div class="lbl">Founding-era usage</div>'+d.usage.map(function(u){return '<div class="quote">“'+esc(u.quote)+'”<span class="src">— '+esc(u.source||'')+(u.year?', '+u.year:'')+'</span></div>';}).join('')+'</div>';
+    }
+    h+='<div class="rowbtns"><button id="d-read">🔊 Read aloud</button><button id="d-note">✎ Save to Notes</button></div>';
+    if(d.drift&&d.drift.length){
+      h+='<button class="driftbtn" id="d-drift">Define the Drift ('+d.drift.length+') ▾</button><div id="d-dr019" style="display:none">'+d.drift.map(driftHTML).join('')+'</div>';
+    }
+    v.innerHTML=h;
+    el('d-read').onclick=function(){ VSpeak(d.word+'. '+d.johnson); };
+    el('d-note').onclick=function(){ addNote(d.word+' — '+d.johnson+'  (Johnson 1773)'); el('d-note').textContent='✓ Saved'; };
+    var db=el('d-drift'); if(db) db.onclick=function(){ var z=el('d-dr019'); var open=z.style.display==='none'; z.style.display=open?'block':'none'; db.textContent='Define the Drift ('+d.drift.length+') '+(open?'▴':'▾'); };
+  }
+  function define(word){
+    word=(word||'').trim().toLowerCase().replace(/[^a-z-]/g,''); if(!word) return;
+    show('define'); el('v-define').innerHTML='<div class="spin">Looking up “'+esc(word)+'”…</div>';
+    api('/api/entry?word='+encodeURIComponent(word)).then(renderEntry).catch(function(){ el('v-define').innerHTML='<div class="hint">Engine not reachable.</div>'; });
+  }
+  el('searchForm').addEventListener('submit',function(e){ e.preventDefault(); el('q').blur(); define(el('q').value); });
+
+  /* ---------- BROWSE (readable Johnson) ---------- */
+  var bwNext=null, bwLoading=false;
+  function loadBrowse(from,append){
+    if(bwLoading) return; bwLoading=true;
+    api('/api/dictbrowse?from='+encodeURIComponent(from||'')+'&limit=40').then(function(d){
+      bwNext=d.next;
+      var html=(d.entries||[]).map(function(e){ return '<div class="bwi" data-w="'+esc(e.word)+'"><div class="w">'+esc(e.word)+'</div><div class="d">'+esc(e.johnson||'')+'</div></div>'; }).join('');
+      if(append) el('bwlist').insertAdjacentHTML('beforeend',html); else el('bwlist').innerHTML=html||'<div class="hint">No entries.</div>';
+      bwLoading=false;
+    }).catch(function(){ bwLoading=false; });
+  }
+  el('bwlist').addEventListener('click',function(e){ var it=e.target.closest('.bwi'); if(it){ el('q').value=it.getAttribute('data-w'); define(it.getAttribute('data-w')); } });
+  var jt; el('jump').addEventListener('input',function(){ clearTimeout(jt); jt=setTimeout(function(){ loadBrowse(el('jump').value.trim().toLowerCase(),false); },260); });
+  el('main').addEventListener('scroll',function(){ if(el('v-browse').classList.contains('on') && bwNext && !bwLoading && el('main').scrollTop+el('main').clientHeight>=el('main').scrollHeight-500) loadBrowse(bwNext,true); });
+
+  /* ---------- LIBRARY (founding documents) ---------- */
+  var DOCS=[
+    ['The Federalist Papers','Publius · 1787–88','federalist-papers.html'],
+    ['The Anti-Federalist Papers','Brutus et al. · 1787–88','anti-federalist-papers.html'],
+    ['Elliot’s Debates','Ratifying conventions','elliots-debates.html'],
+    ['Madison’s Notes','Federal Convention · 1787','madisons-notes.html'],
+    ['Farrand’s Records','The Convention','farrands-records.html'],
+    ['Story, Commentaries','Joseph Story · 1833','story-commentaries.html'],
+    ['Rawle, A View of the Constitution','William Rawle · 1825','rawle-view.html'],
+    ['Blackstone’s Commentaries','1765–69','blackstone-commentaries.html'],
+    ['Montesquieu, Spirit of the Laws','1748','montesquieu-spirit.html'],
+    ['Locke, Essay','John Locke · 1689','locke-essay.html']
+  ];
+  function renderDocs(){
+    el('doclist').innerHTML=DOCS.map(function(d){ return '<div class="doc" data-src="books/'+d[2]+'" data-t="'+esc(d[0])+'"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/></svg><span class="t">'+esc(d[0])+'</span><span class="c">'+esc(d[1])+'</span></div>'; }).join('');
+  }
+  el('doclist').addEventListener('click',function(e){ var d=e.target.closest('.doc'); if(d) openReader(d.getAttribute('data-src'),d.getAttribute('data-t')); });
+  function openReader(src,title){ el('rtitle').textContent=title; el('rframe').src=src; el('reader').classList.add('on'); }
+  el('rback').addEventListener('click',function(){ el('reader').classList.remove('on'); el('rframe').src='about:blank'; });
+
+  /* ---------- NOTES (shared with desktop: veritas.notes) ---------- */
+  function getNotes(){ try{return JSON.parse(LS.getItem('veritas.notes')||'[]')||[]}catch(e){return[]} }
+  function saveNotes(a){ LS.setItem('veritas.notes',JSON.stringify(a)); }
+  function addNote(t){ t=(t||'').trim(); if(!t)return; var a=getNotes(); a.unshift({id:'n'+Date.now(),text:t,ts:Date.now()}); saveNotes(a); renderNotes(); }
+  function renderNotes(){
+    var a=getNotes();
+    el('notelist').innerHTML=a.length?a.map(function(n){ return '<div class="note" data-id="'+n.id+'">'+esc(n.text)+'<span class="rd" data-rd="1">🔊</span><span class="x" data-x="1">×</span></div>'; }).join(''):'<div class="hint">No notes yet. Save a definition, or jot one above — your notes sync with VERITAS on the desktop.</div>';
+  }
+  el('noteAdd').addEventListener('click',function(){ addNote(el('noteInput').value); el('noteInput').value=''; });
+  el('noteInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ addNote(el('noteInput').value); el('noteInput').value=''; } });
+  el('notelist').addEventListener('click',function(e){
+    var note=e.target.closest('.note'); if(!note)return; var id=note.getAttribute('data-id');
+    if(e.target.getAttribute('data-x')){ saveNotes(getNotes().filter(function(n){return n.id!==id;})); renderNotes(); return; }
+    if(e.target.getAttribute('data-rd')){ var n=getNotes().filter(function(x){return x.id===id;})[0]; if(n) VSpeak(n.text); }
+  });
+
+  window.VERITAS_define=define;   // for the Android bridge / deep links
+})();
+</script>
+</body>
+</html>

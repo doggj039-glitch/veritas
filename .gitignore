@@ -1,0 +1,52 @@
+# ============================================================================
+#  VERITAS .gitignore — publish CODE, never DATA or SECRETS.
+#  This repo is code + docs only. The corpora/dictionaries/models are excluded
+#  because (a) they are gigabytes and (b) some sources prohibit redistribution
+#  (see DATA_AND_SOURCES.md). Contributors rebuild the data locally per that doc.
+# ============================================================================
+
+# --- 🔑 secrets — never commit ---------------------------------------------
+*key*.txt
+*secret*
+*.env
+config.json
+veritas_key*
+.config/
+
+# --- 📚 the record / data (excluded; see DATA_AND_SOURCES.md) ----------------
+03_LIBRARIES/
+08_RAW_QUARANTINE/
+07_CAPTURE_TOOLS/sources_data/
+07_CAPTURE_TOOLS/*.json
+saved_sources/
+**/*.db
+**/*library*.json
+**/VERITAS_definitions_library.json
+**/constitutional_usage_database.json
+**/veritas_corpus.db
+# agent CORPORA are excluded, but keep persona.md + the build/query CODE:
+10_AGENTS/**/corpus.db
+10_AGENTS/**/source/
+10_AGENTS/_unique_agent_source_backup/
+
+# --- 🏗️ build artifacts, models, binaries (rebuild locally) ------------------
+dist/
+build/
+.buildvenv/
+.venv/
+__pycache__/
+*.pyc
+*.apk
+*.exe
+00_APP/tts/
+00_APP/stt/
+**/piper
+**/*.onnx
+**/model/
+*.zip
+
+# --- OS / editor cruft -------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~

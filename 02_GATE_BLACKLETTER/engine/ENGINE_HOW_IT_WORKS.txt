@@ -1,0 +1,110 @@
+========================================================================
+  THE BLACKLETTER ENGINE  --  How It Works, and How To Continue It
+========================================================================
+
+WHAT THE ENGINE IS
+------------------
+The engine is the rule-runner -- the heart of Blackletter. You hand it a
+CASE and it hands back one DISPOSITION with a full trace. It does two
+things nothing else does:
+
+  1. It resolves every word the case leans on through the gate FIRST.
+     If a word is not sourced, it stops on that word and goes no further.
+  2. It never grades. The disposition is a mechanical classification of
+     what the structure shows -- not an opinion about whether the action
+     was good or bad. You read the trace and judge for yourself.
+
+
+THE SIX DISPOSITIONS (the error doctrine)
+-----------------------------------------
+Every answer the engine can give is one of these, and each one IS a
+constitutional idea, not just a label:
+
+  VOID FOR VAGUENESS
+     A word the case relies on has no controlling definition. The engine
+     will not run on an unsourced word. (This is the gate / NOVA JOHNSON
+     wall, firing inside the engine.)
+
+  RESERVED
+     The authority claimed is not on the list of enumerated powers. By
+     the Tenth Amendment's own words, it is reserved to the States or the
+     people.
+
+  ULTRA VIRES  ("beyond the powers")
+     The authority claimed IS enumerated, but the action crosses that
+     power's own written limit (for example, the two-year cap on army
+     appropriations).
+
+  ABRIDGMENT
+     The action burdens a protected right, and no authority is delegated
+     over that subject at all. The authority claimed cannot supply what
+     was never granted.
+
+  DUE PROCESS VIOLATION
+     A required procedure was not followed.
+
+  VALID
+     None of the above fired. The engine says so plainly -- it is not a
+     violation-hunter. A clean action comes back clean.
+
+
+HOW A RULE IS SHAPED (rules are DATA, in the 'rules' folder)
+------------------------------------------------------------
+A rule is a small file. There are two kinds.
+
+A PROHIBITION rule protects a right (see speech-protection.json):
+    kind:               "prohibition"
+    protects:           the right it guards (e.g. Freedom of Speech)
+    termsRelied:        the words the rule depends on (e.g. "speech")
+    authorityOverSubject: "none-delegated" means no power reaches it
+    failureResult:      what disposition to return when it is broken
+
+An AUTHORITY-GRANT rule maps what power exists (see enumerated-authority.json):
+    kind:               "authority-grant"
+    enumeratedPowers:   the textual list of granted powers, each with an id
+    textualLimits:      any written limit tied to a power (e.g. two years)
+
+To add a rule, copy one of the two files, change the contents, and drop
+it in the 'rules' folder. The engine loads every file in that folder
+automatically. You do not touch the engine code to add a rule -- that is
+the whole point of keeping rules as data.
+
+
+HOW A CASE IS SHAPED
+--------------------
+A case is also just data (see the examples inside RUN_THE_ENGINE):
+    ruleId:             which rule to run it against
+    actor:              who acted
+    action:             what they did
+    claimedAuthority:   the power they claim (in plain words)
+    claimedAuthorityId: for authority cases, which enumerated power (or none)
+    affectedObject:     the right or power it touched
+    termsInvolved:      the words whose meaning matters (these get resolved)
+
+
+WHERE TO CONTINUE (the natural next moves)
+------------------------------------------
+The engine runs. Here is what it is waiting for you to add, roughly in
+order of usefulness:
+
+  1. More rules. Each amendment and each enumerated power can become a
+     rule file. The engine already knows how to run them; it just needs
+     the rules written. Your Bill of Rights, 9th, and 10th agent cards
+     are the raw material.
+
+  2. The scope tests for ULTRA VIRES. Right now the engine catches a
+     crossed limit only when a rule states a plain written limit (like
+     "two years"). Powers with a boundary in words rather than numbers
+     (e.g. commerce "among the several states") need that boundary
+     written into the rule so the engine can apply it to stated facts.
+
+  3. NOVA JOHNSON in the trace. Right now the engine only checks that a
+     word IS sourced. Next, it can print the actual founding-era
+     definition it resolved, straight from NOVA JOHNSON, so the trace
+     shows not just "sourced" but the meaning it relied on.
+
+  4. Cases as files. Move the example cases out of RUN_THE_ENGINE and
+     into a 'cases' folder, so you can build a library of tests -- the
+     case each rule must catch, and the case it must clear.
+
+None of these require rebuilding the engine. It is built to be fed.

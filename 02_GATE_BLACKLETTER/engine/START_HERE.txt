@@ -1,0 +1,102 @@
+========================================================================
+  START HERE  --  Run the Blackletter Engine
+========================================================================
+
+WHAT THIS IS
+------------
+This is the engine -- the rule-runner at the heart of Blackletter. You
+give it a case, it gives you back one plain answer and shows every step
+it took to get there.
+
+This packet runs five example cases for you, one for each kind of answer
+the engine can give. Nothing here touches VERITAS. It is safe and self-
+contained. Open it, watch it, close it -- nothing else changes.
+
+
+WHAT IS INSIDE
+--------------
+  1. START_HERE.txt ................. this guide.
+  2. RUN_THE_ENGINE.py .............. the demonstration you will start.
+  3. ENGINE_HOW_IT_WORKS.txt ........ the doctrine, and how to continue it.
+  4. blackletter_engine.py .......... the engine itself.
+  5. rules (a folder) ............... the rules, kept as data:
+        speech-protection.json
+        enumerated-authority.json
+  6. veritas_libraries.py ........... the gate the engine resolves words through.
+  7. VERITAS_definitions_library.json .. your definitions.
+  8. etymology_dictionary.py ........ your word origins.
+  9. VERITAS_historical_context_library.json .. your historical notes.
+
+Everything must stay together in one folder.
+
+
+THE STEPS
+---------
+
+STEP 1 -- Save the packet.
+  Click the packet file BLACKLETTER_ENGINE.zip so it saves onto your
+  computer. It lands in your Downloads area.
+
+STEP 2 -- Find it.
+  Open your file manager (the small filing-cabinet icon that shows your
+  folders). Click "Downloads" on the left. You will see
+  BLACKLETTER_ENGINE.zip.
+
+STEP 3 -- Unpack it.
+  Right-click BLACKLETTER_ENGINE.zip one time. Click "Extract Here."
+  A new folder named BLACKLETTER_ENGINE appears.
+
+STEP 4 -- Open the new folder.
+  Double-click the new folder BLACKLETTER_ENGINE to open it. You should
+  see the items listed above, including the 'rules' folder.
+
+STEP 5 -- Open a typing window inside that folder.
+  Right-click an empty space inside this folder (on the blank area, not
+  on a file). Click "Open Terminal Here." A small window opens with a
+  blinking cursor.
+
+STEP 6 -- Start the engine.
+  Type this line exactly, then press Enter:
+
+        python3 RUN_THE_ENGINE.py
+
+  In plain terms: "python3" is a program already on your computer that
+  reads this kind of file; "RUN_THE_ENGINE.py" is the file you want it to
+  read. Typing them with a space between and pressing Enter starts it.
+
+STEP 7 -- Read what it prints.
+  It runs five cases and shows, for each one, the answer in big letters
+  and every step it took to reach it.
+
+
+WHAT SUCCESS LOOKS LIKE
+-----------------------
+You will see five different answers, each with its trace:
+
+  ABRIDGMENT        -- a permit-and-fee on political pamphlets
+  VALID             -- a town repaving a street (no right touched)
+  VOID FOR VAGUENESS-- a case leaning on the word "privacy," which is not
+                       in your library, so the engine stops on that word
+  RESERVED          -- a claimed federal power that is not enumerated
+  ULTRA VIRES       -- an army appropriation for five years, crossing the
+                       written two-year limit
+
+If you see five different answers, each with a trace showing how it got
+there, the engine works. When you are ready to build on it, open
+ENGINE_HOW_IT_WORKS.txt -- it explains how to add your own rules and cases.
+
+
+IF SOMETHING LOOKS WRONG
+------------------------
+  - If Step 6 says "command not found," Python is not on this computer
+    yet. Stop and tell me; I will walk you through adding it.
+  - If it cannot find a file, the items got separated. Put them all back
+    in one folder (with the 'rules' folder inside it) and try Step 5 again.
+  - Anything else: copy what the window says and tell me.
+
+
+A NOTE ON WHICH COMPUTER
+------------------------
+Written for your Linux computer. On Windows, only Step 5 and the exact
+word in Step 6 change ("python" instead of "python3"). Tell me if you are
+on Windows and I will hand you that version.

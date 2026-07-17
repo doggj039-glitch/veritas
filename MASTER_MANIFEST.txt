@@ -1,0 +1,190 @@
+VERITAS MASTER MERGE — MANIFEST
+Built: 2026-07-06
+
+Every file below is the winning copy. Where more than one copy existed, the reason the winner won is stated.
+
+======================================================================
+01_APP
+The full VERITAS application. Base came from VERITAS_UPGRADED.zip; five files (main.py, run.py, report_generator.py, document_processor.py, consistency_engine.py) were replaced with the newer loose copies carrying VERITAS branding. Two lines in test_report_generator.py were updated to look for the new VERITAS report titles instead of the retired Disclosure titles. All 401 checks pass.
+
+  01_APP/CHANGELOG.md   [9bb112fa4ded]   1,481 bytes
+  01_APP/DEPENDENCY_GRAPH.md   [a689321bce23]   1,653 bytes
+  01_APP/IMPORT_GRAPH.md   [c879d649770e]   2,399 bytes
+  01_APP/INSTALL_LINUX.md   [85dc864ad10b]   1,227 bytes
+  01_APP/PROJECT_STRUCTURE.md   [ac3f70056f2b]   2,933 bytes
+  01_APP/README.md   [0fe59aa47ec9]   1,904 bytes
+  01_APP/ai_integration.py   [15cb9dfd8a80]   22,020 bytes
+  01_APP/citation_graph.py   [9c0af16029d9]   14,596 bytes
+  01_APP/config.py   [73bafa2a215c]   1,838 bytes
+  01_APP/consistency_engine.py   [65cb5f2851ba]   24,017 bytes
+  01_APP/corpus_index.py   [d1a851ba5e7c]   16,747 bytes
+  01_APP/document_processor.py   [df3d769a6b70]   12,497 bytes
+  01_APP/gap_log.py   [075648122d08]   10,110 bytes
+  01_APP/historical_context_library.py   [7ae0e4e2233c]   55,032 bytes
+  01_APP/legal_dictionary.py   [ce324950506d]   21,837 bytes
+  01_APP/literal_dictionary.py   [3218416c2f24]   216,216 bytes
+  01_APP/main.py   [03d96ec7b7fb]   77,495 bytes
+  01_APP/metadata_stripper.py   [54ccf9f05553]   2,593 bytes
+  01_APP/phone_contract.py   [97b941cb4673]   19,318 bytes
+  01_APP/pipeline_runner.py   [b74c980a868a]   31,753 bytes
+  01_APP/privacy_scrubber.py   [98515f4efa67]   1,958 bytes
+  01_APP/report_generator.py   [ca0730206fab]   35,213 bytes
+  01_APP/requirements.txt   [0f63613af8cb]   589 bytes
+  01_APP/run.py   [b935973ed527]   570 bytes
+  01_APP/source_verifier.py   [6a0b45b96078]   30,186 bytes
+  01_APP/test_citation_graph.py   [b91596902c1e]   29,091 bytes
+  01_APP/test_corpus_index.py   [42174ba15981]   13,359 bytes
+  01_APP/test_gap_log.py   [fff1d9bc6e94]   18,887 bytes
+  01_APP/test_phone_contract.py   [546453483248]   23,444 bytes
+  01_APP/test_pipeline_runner.py   [be1c0b8447d4]   22,842 bytes
+  01_APP/test_report_generator.py   [ac8a7acc78b0]   19,073 bytes
+  01_APP/test_source_verifier.py   [b2e9ad7aac7a]   49,177 bytes
+  01_APP/__pycache__/ai_integration.cpython-312.pyc   [4cdcd40d5f39]   23,385 bytes
+  01_APP/__pycache__/citation_graph.cpython-312.pyc   [b3542802a4de]   15,590 bytes
+  01_APP/__pycache__/config.cpython-312.pyc   [926c072b7830]   1,925 bytes
+  01_APP/__pycache__/consistency_engine.cpython-312.pyc   [82d8fbad6ddc]   26,498 bytes
+  01_APP/__pycache__/corpus_index.cpython-312.pyc   [17d7b6dc5e51]   19,840 bytes
+  01_APP/__pycache__/document_processor.cpython-312.pyc   [20bb95e0f861]   16,318 bytes
+  01_APP/__pycache__/gap_log.cpython-312.pyc   [2a24a7d3770b]   11,421 bytes
+  01_APP/__pycache__/historical_context_library.cpython-312.pyc   [e04ec36cc49e]   43,774 bytes
+  01_APP/__pycache__/legal_dictionary.cpython-312.pyc   [50a2fb646adb]   16,107 bytes
+  01_APP/__pycache__/literal_dictionary.cpython-312.pyc   [d64b8690a51a]   186,152 bytes
+  01_APP/__pycache__/main.cpython-312.pyc   [084bbc8974de]   110,192 bytes
+  01_APP/__pycache__/metadata_stripper.cpython-312.pyc   [84e2f2329b67]   3,693 bytes
+  01_APP/__pycache__/phone_contract.cpython-312.pyc   [202f83116d35]   18,605 bytes
+  01_APP/__pycache__/pipeline_runner.cpython-312.pyc   [1c04b3f26a5c]   32,759 bytes
+  01_APP/__pycache__/privacy_scrubber.cpython-312.pyc   [034b537ad06e]   2,116 bytes
+  01_APP/__pycache__/report_generator.cpython-312.pyc   [83f354b7ae38]   39,661 bytes
+  01_APP/__pycache__/run.cpython-312.pyc   [224b4b9ed94e]   1,015 bytes
+  01_APP/__pycache__/source_verifier.cpython-312.pyc   [6213d68610dd]   30,122 bytes
+  01_APP/__pycache__/test_citation_graph.cpython-312.pyc   [de5c8f59c6fb]   33,909 bytes
+  01_APP/__pycache__/test_corpus_index.cpython-312.pyc   [6a9d92653f6c]   12,764 bytes
+  01_APP/__pycache__/test_gap_log.cpython-312.pyc   [49c67bb62a07]   22,353 bytes
+  01_APP/__pycache__/test_phone_contract.cpython-312.pyc   [58bf28bf13b0]   27,232 bytes
+  01_APP/__pycache__/test_pipeline_runner.cpython-312.pyc   [7933b0e09292]   28,259 bytes
+  01_APP/__pycache__/test_report_generator.cpython-312.pyc   [1f49f5c4f095]   19,414 bytes
+  01_APP/__pycache__/test_source_verifier.cpython-312.pyc   [660205daff42]   45,971 bytes
+  01_APP/archive/corpus_index-1.py   [d1a851ba5e7c]   16,747 bytes
+  01_APP/archive/literal_dictionary-old-v1.py   [2176f2d3b7af]   257,581 bytes
+  01_APP/archive/main-v1.py   [a36f673fe513]   75,529 bytes
+  01_APP/archive/pipeline_runner-v1.py   [c40cefb05375]   29,877 bytes
+  01_APP/archive/pipeline_runner-v2.py   [8b84711e1962]   30,378 bytes
+  01_APP/archive/source_verifier-1.py   [6a0b45b96078]   30,186 bytes
+  01_APP/archive/test_corpus_index-1.py   [42174ba15981]   13,359 bytes
+  01_APP/archive/test_source_verifier-1.py   [b2e9ad7aac7a]   49,177 bytes
+
+======================================================================
+02_GATE_BLACKLETTER
+The three working Blackletter programs exactly as packaged: the gate, the engine, and Nova Johnson. Each carries the current 13,432-byte veritas_libraries.py (the old loose 8,637-byte copy was dropped). All three ran and passed live tests.
+
+  02_GATE_BLACKLETTER/gate/START_HERE.txt   [f8de302df48c]   7,281 bytes
+  02_GATE_BLACKLETTER/gate/TRY_THE_GATE.py   [6e7c9d401f26]   3,354 bytes
+  02_GATE_BLACKLETTER/gate/VERITAS_definitions_library.json   [c40b009a815c]   44,059 bytes
+  02_GATE_BLACKLETTER/gate/VERITAS_historical_context_library.json   [fc7615975c81]   61,693 bytes
+  02_GATE_BLACKLETTER/gate/etymology_dictionary.py   [a825f2f2a519]   337,989 bytes
+  02_GATE_BLACKLETTER/gate/veritas_libraries.py   [b92e6cc29cf7]   13,432 bytes
+  02_GATE_BLACKLETTER/gate/__pycache__/etymology_dictionary.cpython-312.pyc   [9eda2e67dc54]   286,162 bytes
+  02_GATE_BLACKLETTER/gate/__pycache__/veritas_libraries.cpython-312.pyc   [62e4e1f1e73d]   15,135 bytes
+  02_GATE_BLACKLETTER/engine/ENGINE_HOW_IT_WORKS.txt   [304f1b424de4]   4,834 bytes
+  02_GATE_BLACKLETTER/engine/RUN_THE_ENGINE.py   [5690e85de78a]   3,459 bytes
+  02_GATE_BLACKLETTER/engine/START_HERE.txt   [1ba6c6c1ce0d]   4,069 bytes
+  02_GATE_BLACKLETTER/engine/VERITAS_definitions_library.json   [c40b009a815c]   44,059 bytes
+  02_GATE_BLACKLETTER/engine/VERITAS_historical_context_library.json   [fc7615975c81]   61,693 bytes
+  02_GATE_BLACKLETTER/engine/blackletter_engine.py   [bb55559fc007]   8,996 bytes
+  02_GATE_BLACKLETTER/engine/etymology_dictionary.py   [a825f2f2a519]   337,989 bytes
+  02_GATE_BLACKLETTER/engine/veritas_libraries.py   [b92e6cc29cf7]   13,432 bytes
+  02_GATE_BLACKLETTER/engine/rules/enumerated-authority.json   [34f676fac74e]   3,260 bytes
+  02_GATE_BLACKLETTER/engine/rules/speech-protection.json   [f22895799cfe]   805 bytes
+  02_GATE_BLACKLETTER/engine/__pycache__/blackletter_engine.cpython-312.pyc   [ae83e764d8ba]   11,816 bytes
+  02_GATE_BLACKLETTER/engine/__pycache__/etymology_dictionary.cpython-312.pyc   [eda2da462c5e]   286,164 bytes
+  02_GATE_BLACKLETTER/engine/__pycache__/veritas_libraries.cpython-312.pyc   [aa82cff3fb48]   15,137 bytes
+  02_GATE_BLACKLETTER/nova_johnson/NOVA_JOHNSON_ROLE_CARD.txt   [88955baf9ebd]   4,497 bytes
+  02_GATE_BLACKLETTER/nova_johnson/START_HERE.txt   [34400d946769]   4,291 bytes
+  02_GATE_BLACKLETTER/nova_johnson/VERITAS_definitions_library.json   [c40b009a815c]   44,059 bytes
+  02_GATE_BLACKLETTER/nova_johnson/VERITAS_historical_context_library.json   [fc7615975c81]   61,693 bytes
+  02_GATE_BLACKLETTER/nova_johnson/etymology_dictionary.py   [a825f2f2a519]   337,989 bytes
+  02_GATE_BLACKLETTER/nova_johnson/nova_johnson.py   [bbcd28b7624a]   5,876 bytes
+  02_GATE_BLACKLETTER/nova_johnson/veritas_libraries.py   [b92e6cc29cf7]   13,432 bytes
+  02_GATE_BLACKLETTER/nova_johnson/__pycache__/etymology_dictionary.cpython-312.pyc   [4a7ced74ab10]   286,156 bytes
+  02_GATE_BLACKLETTER/nova_johnson/__pycache__/veritas_libraries.cpython-312.pyc   [e6e1cdf93d66]   15,129 bytes
+
+======================================================================
+03_LIBRARIES
+One canonical copy of each of the four layers: definitions library (209 entries), historical context library (11 sources), etymology dictionary (876 entries), usage database (1,397 words, 4,145 quotes), plus the current gate reader. All copies across all packages were byte-identical, verified by checksum.
+
+  03_LIBRARIES/VERITAS_definitions_library.json   [c40b009a815c]   44,059 bytes
+  03_LIBRARIES/VERITAS_historical_context_library.json   [fc7615975c81]   61,693 bytes
+  03_LIBRARIES/constitutional_usage_database.json   [48198b0acbd0]   3,122,907 bytes
+  03_LIBRARIES/etymology_dictionary.py   [a825f2f2a519]   337,989 bytes
+  03_LIBRARIES/veritas_libraries.py   [b92e6cc29cf7]   13,432 bytes
+
+======================================================================
+04_WORD_RECORDS
+BLACKLETTER_APP.html (1,396 words x 9 source columns), Johnson's Bench (1,334 of 1,397 verified), and the usage viewer. JavaScript in both apps passed a full syntax check.
+
+  04_WORD_RECORDS/BLACKLETTER_APP.html   [ea60c17a43f7]   2,894,296 bytes
+  04_WORD_RECORDS/constitutional_usage_viewer.html   [3241400acc94]   2,673,873 bytes
+  04_WORD_RECORDS/johnsons_bench.html   [8ef39ac68145]   1,092,576 bytes
+
+======================================================================
+05_AUDIT
+The complete definition audit: summary/repair workbook plus the two CSVs. Independently recounted against the app database — the numbers match.
+
+  05_AUDIT/blackletter_definition_audit_definitions.csv   [101d00ea715c]   2,712,164 bytes
+  05_AUDIT/blackletter_definition_audit_summary_and_repair.xlsx   [ab3ca8f649ca]   158,832 bytes
+  05_AUDIT/blackletter_definition_audit_words.csv   [846418a64e8e]   67,726 bytes
+
+======================================================================
+06_SPEC_STONES
+All seven Blackletter spec stones plus the Nova Johnson role card. The duplicate copy of the architecture map was dropped.
+
+  06_SPEC_STONES/BLACKLETTER_22_leverage_questions.md   [e3f38a34bca6]   4,109 bytes
+  06_SPEC_STONES/BLACKLETTER_architecture_map.md   [9eafd890baad]   6,582 bytes
+  06_SPEC_STONES/BLACKLETTER_correction_protocol.md   [a070425e7cb1]   4,647 bytes
+  06_SPEC_STONES/BLACKLETTER_fact_law_inference.md   [787ce28230c2]   6,286 bytes
+  06_SPEC_STONES/BLACKLETTER_gate_rules_of_construction.md   [42f3ccf5e6d2]   8,391 bytes
+  06_SPEC_STONES/BLACKLETTER_order_of_operations.md   [6d1b5d53ef60]   4,933 bytes
+  06_SPEC_STONES/BLACKLETTER_word_record.md   [18c39b3ca81d]   5,351 bytes
+  06_SPEC_STONES/NOVA_JOHNSON_ROLE_CARD.txt   [88955baf9ebd]   4,497 bytes
+
+======================================================================
+07_CAPTURE_TOOLS
+The browser capture tool (v9) and the cross-check script — the clean, human-transcribed path for new Johnson entries.
+
+  07_CAPTURE_TOOLS/constitution-word-capture-v9_user.js   [f441118c8f2a]   280,162 bytes
+  07_CAPTURE_TOOLS/johnson_crosscheck_script.py   [09e7105f959b]   7,297 bytes
+
+======================================================================
+08_RAW_QUARANTINE
+Unverified raw material. The 26,668-entry Johnson bulk extract (every entry flagged unverified; about 4,700 fake headwords from chopped author names) and the raw Priestley 1761 scan. Nothing here may feed a decider until verified.
+
+  08_RAW_QUARANTINE/JOHNSON_DICTIONARY_BULK_EXTRACT.json   [346ababc9c8c]   25,499,704 bytes
+  08_RAW_QUARANTINE/priestley_1761_grammar.txt   [548e82efb900]   135,999 bytes
+
+======================================================================
+09_RECORDS
+The decision manifest (108 files judged, 48 keep / 60 discard) and the conversion report — the paper trail of what was already cleaned out and why.
+
+  09_RECORDS/DECISION_MANIFEST.json   [32cd46b93a9b]   16,423 bytes
+  09_RECORDS/_CONVERSION_REPORT.json   [7cd2a3cdaf0d]   431 bytes
+
+======================================================================
+{01_APP,02_GATE_BLACKLETTER,03_LIBRARIES,04_WORD_RECORDS,05_AUDIT,06_SPEC_STONES,07_CAPTURE_TOOLS,08_RAW_QUARANTINE,09_RECORDS}
+
+
+
+======================================================================
+NOT INSIDE THIS PACKAGE (kept separate on purpose):
+  VERITAS_KEEP.zip — the 107MB source vault (13 OED volumes, Blackstone, Farrand,
+  Elliot, Federalist, Anti-Federalist, Madison, Story, Rawle, Montesquieu, Locke,
+  Bailey, Bouvier, Blackletter schemas). It is already a finished, deduplicated
+  archive. Keep it in the same folder as this package. Do not unpack it until needed.
+
+REPAIR PASS (post-merge):
+  VERITAS_definitions_library.json repaired in all four locations [c40b009a815c].
+  Twelve entries had modern editorial commentary mixed into the definition field
+  (sense-selection lines like 'Sense 2 applies:', drift NOTEs, and capture remarks).
+  The commentary was MOVED to new note/sense_applied fields; the definition field
+  now holds source transcription only. Nothing was deleted. Two flags from the
+  outside test report (ability, time) were checked character-by-character and are
+  false alarms -- both are clean, genuine source text.
