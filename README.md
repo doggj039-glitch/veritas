@@ -9,10 +9,17 @@ ruling mean — and how far, measurably and with sources, has practice drifted f
 gathers the documented record, keeps founding-era meaning and modern meaning strictly separate,
 and hands you a sourced, plain-English basis for asking the real question yourself.
 
-> **This project is looking for collaborators who can take it further** — constitutional-law
-> scholars, historians of legal language, and engineers. If that's you, please read
-> **[NEXT_PHASE.md](NEXT_PHASE.md)**. Substantive review of the legal reasoning is especially
-> wanted; see the honest-limits section below.
+It stands on **two founding-era pillars**: **Johnson's Dictionary (1755/1773)** for what the *words*
+meant, and **the period's rules of legal construction** (expressio unius, ejusdem generis, noscitur a
+sociis, the rule against surplusage, original public meaning…) for how the *text* was to be read.
+
+> **👉 New here? Start with [INTRODUCTION.md](INTRODUCTION.md)** — the plain-English "what this is and
+> why," the two pillars, and an open invitation.
+
+> **This project is looking for people far more capable to take it further and make it genuinely good** —
+> constitutional-law scholars, legal historians, linguists of period English, and engineers. It was built
+> largely solo and has reached the limit of one builder. **If that's you, please take it over.** Read
+> **[NEXT_PHASE.md](NEXT_PHASE.md)**; substantive review of the legal reasoning is especially wanted.
 
 ---
 
